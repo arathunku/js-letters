@@ -1,0 +1,86 @@
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Canvas</title>
+  <script type="text/javascript" src="dist/js/vendor/math.js"></script>
+  <script type="text/javascript" src="dist/js/letters_data/letter_a_data.js"></script>
+  <script type="text/javascript" src="dist/js/letters_data/letter_b_data.js"></script>
+  <script type="text/javascript" src="dist/js/letters_data/letter_c_data.js"></script>
+  <script type="text/javascript" src="dist/js/letters_data/letter_d_data.js"></script>
+  <style>
+  .text {
+    display: block;
+    margin-bottom: 50px;
+  }
+  .db {
+    display: block;
+    margin: 10px;
+  }
+  .showMatrix {
+    display: block;
+    margin: 10px;
+    font-size: 7px;
+  }
+  .button-block {
+    display: hidden;
+  }
+  </style>
+  <script>
+  window.app = {
+    set: {
+        letters: ['A', 'B', 'C', 'D'],
+        numberOfFeatures: 2,
+        allSamples: 0,
+        move: 0
+    },
+    dim: 100,
+  };
+  </script>
+<body>
+  <div class="text">
+    <span class="recognize db">Recognized letter: <span class="letter"></span></span>
+    <button id="clean db" onclick="Learn.predict();">PREDICT</button>
+    <button id="clean db" onclick="canvas.clean();">CLEAR</button>
+    <!-- <button id="clean db" onclick="next();">next</button> -->
+    <!-- <button id="clean db" onclick="showAll();">showAll</button> -->
+  </div>
+  <canvas id="canvas" height="100" width="100"></canvas>
+  <div class="current-set">Current set: <span class="info"></span></div>
+  <ul class="letters">
+    <div class="button-block id-1" >
+      <li class="letters-element" id="A">
+        <button onclick="Learn.correct('A')">A</button>
+        <span class="number">0</span>
+        <span class="prediction">---</span>
+      </li>
+      <li class="letters-element" id="B">
+        <button onclick="Learn.correct('B')">B</button>
+        <span class="number">0</span>
+        <span class="prediction">---</span>
+      </li>
+      <li class="letters-element" id="C">
+        <button onclick="Learn.correct('C')">C</button>
+        <span class="number">0</span>
+        <span class="prediction">---</span>
+      </li>
+      <li class="letters-element" id="D">
+        <button onclick="Learn.correct('D')" >D</button>
+        <span class="number">0</span>
+        <span class="prediction">---</span>
+      </li>
+    </div>
+  </ul>
+  <div class="sum">0</div>
+  <div>
+    Features:
+  </div>
+  <ul class="features">
+    <li class="features-element">-</li>
+    <li class="features-element">-</li>
+  </ul>
+  <div class="showMatrix">
+
+  </div>
+  <script type="text/javascript" src="dist/js/canvas.js"></script>
+  <script type="text/javascript" src="dist/js/learner/letter.js"></script>
+  <script type="text/javascript" src="dist/js/learner/learn.js"></script>
+</body></html>
